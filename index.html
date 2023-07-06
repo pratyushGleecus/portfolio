@@ -35,7 +35,8 @@
   <script src="index.js"></script>
   <script type="text/javascript">
     (function () {
-      emailjs.init("process.env.PUBLIC_KEY");
+      var publicKey = "<%= process.env.PUBLIC_KEY %>";
+      emailjs.init(publicKey);
     })();
   </script>
 </head>
