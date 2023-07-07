@@ -1,3 +1,14 @@
+let PUBLIC_KEY, EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID;
+
+
+(async function apiKeys() {
+    const response = await fetch("https://node-8l0c2lxxr-pratyushgleecus.vercel.app/apiKeys");
+    const res = await response.json();
+    // PUBLIC_KEY = res.pkey;
+    EMAIL_SERVICE_ID = res.serviceId
+    EMAIL_TEMPLATE_ID = res.templateId
+})()
+
 
 function sendMail() {
     let params = {
@@ -5,9 +16,9 @@ function sendMail() {
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
     };
-    var serviceID = process.env.EMAIL_SERVICE_ID;
-    var templateID = process.env.EMAIL_TEMPLATE_ID;
-    
+    var serviceID = EMAIL_SERVICE_ID;
+    var templateID = EMAIL_TEMPLATE_ID;
+
     emailjs.send(serviceID, templateID, params)
         .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);

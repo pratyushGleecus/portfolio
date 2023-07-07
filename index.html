@@ -34,9 +34,12 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
   </script>
   <script type="text/javascript">
-    (function () {
-      var publicKey = "<%= process.env.PUBLIC_KEY %>";
-      emailjs.init(publicKey);
+    (async function () {
+      const response = await fetch("https://node-8l0c2lxxr-pratyushgleecus.vercel.app/apiKeys");
+      const res = await response.json();
+      const PUBLIC_KEY = res.pkey;
+      console.log(PUBLIC_KEY)
+      emailjs.init(PUBLIC_KEY);
     })();
   </script>
 </head>
@@ -231,7 +234,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </section>
