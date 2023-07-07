@@ -4,7 +4,6 @@ let PUBLIC_KEY, EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID;
 (async function apiKeys() {
     const response = await fetch("https://node-8l0c2lxxr-pratyushgleecus.vercel.app/apiKeys");
     const res = await response.json();
-    // PUBLIC_KEY = res.pkey;
     EMAIL_SERVICE_ID = res.serviceId
     EMAIL_TEMPLATE_ID = res.templateId
 })()
